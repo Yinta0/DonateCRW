@@ -1,2 +1,2 @@
 # DonateCRW
-App for make projects with Crown.
+Web with Django framework for make projects with Crown.
