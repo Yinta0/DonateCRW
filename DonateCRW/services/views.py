@@ -53,7 +53,7 @@ def services(request):
             print(send_tx)
 
         else:
-            #Update balance for service
+            #Update balance for project
             service.amount_needed = needed
             service.amount_donate = balance
             service.save()
