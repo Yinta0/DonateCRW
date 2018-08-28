@@ -15,13 +15,13 @@ def instruct_wallet(method, params):
     #Set data for login
     RPC_USER = os.getenv("RPC_USER")
     RPC_PHRASE = os.getenv("RPC_PHRASE")
+    RPC_URL = os.getenv("RPC_URL")
 
     #Check crownd for info
-    url = "http://127.0.0.1:9341/"
     payload = json.dumps({"method": method, "params": params})
     headers = {'content-type': "application/json", 'cache-control': "no-cache"}
     try:
-        response = requests.request("POST", url, data=payload, headers=headers, auth=(RPC_USER, RPC_PHRASE))
+        response = requests.request("POST", RPC_URL, data=payload, headers=headers, auth=(RPC_USER, RPC_PHRASE))
         result = json.loads(response.text)
         return result
     except requests.exceptions.RequestException as e:
@@ -38,9 +38,9 @@ def services(request):
     for service in services:
 
         balance = instruct_wallet('getbalance', [service.title])["result"]
-        needed =service.crw_donate - balance
-
         PHRASE = os.getenv("PHRASE")
+        #Check crown needed
+        needed = service.crw_donate - balance
 
         #Check for finish project
         if balance >= service.crw_donate:

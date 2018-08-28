@@ -43,16 +43,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item {% if request.path == '/services/' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Proyectos</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Projects</a>
             </li>
             <li class="nav-item {% if request.path == '/about/' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">Nosotros</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item {% if request.path == '/contact/' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contacto</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contact</a>
             </li>          
           </ul>
         </div>
