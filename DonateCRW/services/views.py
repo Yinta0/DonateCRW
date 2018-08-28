@@ -47,6 +47,11 @@ def services(request):
             #send tx
             timeout = 5
 
+            #Set True on completed and save
+            service.completed = True
+            service.save()
+
+            #Unblock wallet, settxfee and send the tx at wallet shop.
             answer = instruct_wallet('walletpassphrase', [PHRASE, timeout])
             set_txfee = instruct_wallet('settxfee', [0.00000007])
             send_tx = instruct_wallet("sendfrom", [str(service.title), str(service.wallet_shop), 1]) #Cambiar ammount
@@ -62,3 +67,8 @@ def services(request):
 
 
     
+def completed(request):
+    #Show all services, html check if true or false
+    services = Service.objects.all()
+
+    return render(request, "services/completed.html", {'services':services})
