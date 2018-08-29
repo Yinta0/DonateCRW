@@ -45,10 +45,10 @@
             <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Home</a>
             </li>
-            <li class="nav-item {% if request.path == '/services/' %} active {% endif %} px-lg-4">
+            <li class="nav-item {% if request.path == '/projects/' %} active {% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Projects</a>
             </li>
-            <li class="nav-item {% if request.path == '/services/completed/' %} active {% endif %} px-lg-4">
+            <li class="nav-item {% if request.path == '/projects/completed/' %} active {% endif %} px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'completed' %}">Completed</a>
             </li>
             <li class="nav-item {% if request.path == '/about/' %} active {% endif %} px-lg-4">

@@ -21,15 +21,15 @@ urlpatterns = [
     # Paths del core
     path('', include('core.urls')),
     # Paths de services
-    path('services/', include('services.urls')),
+    path('projects/', include('services.urls')),
     # Paths de pages
     path('page/', include('pages.urls')),
-    # Paths de services
+    # Paths de blog
     path('blog/', include('blog.urls')),
     # Paths de contact
     path('contact/', include('contact.urls')),
     # Paths del admin
-    path('admin/', admin.site.urls),
+    path('daocrown/', admin.site.urls),
 ]
 
 if settings.DEBUG:

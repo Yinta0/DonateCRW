@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Service
+from django.shortcuts import render, get_object_or_404
+from .models import Service, Category
+
 
 import getpass
 import json
@@ -59,14 +60,21 @@ def services(request):
 
         else:
             #Update balance for project
-            service.amount_needed = needed
-            service.amount_donate = balance
-            service.save()
+            if service.wallet_donate == None:
+                address = instruct_wallet("getnewaddress", [str(service.title)])["result"]
+                service.wallet_donate = address
+                service.save()
+            else:   
+                service.amount_needed = needed
+                service.amount_donate = balance
+                service.save()
 
     return render(request, "services/services.html", {'services':services})
 
+def category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    return render (request, "services/category.html", {'category':category})
 
-    
 def completed(request):
     #Show all services, html check if true or false
     services = Service.objects.all()

@@ -3,15 +3,15 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Page(models.Model):
-    title = models.CharField(verbose_name="Título", max_length=200)
-    content = RichTextField(verbose_name="Contenido")
-    order = models.SmallIntegerField(verbose_name= "Orden", default=0)
-    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
-    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+    title = models.CharField(verbose_name="Title", max_length=200)
+    content = RichTextField(verbose_name="Content")
+    order = models.SmallIntegerField(verbose_name= "Order", default=0)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Date of creation")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Date de edition")
 
     class Meta:
-        verbose_name = "página"
-        verbose_name_plural = "páginas"
+        verbose_name = "page"
+        verbose_name_plural = "pages"
         ordering = ['order','title']
 
     def __str__(self):
