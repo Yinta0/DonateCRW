@@ -20,7 +20,7 @@ from django.conf import settings
 urlpatterns = [
     # Paths del core
     path('', include('core.urls')),
-    # Paths de services
+    # Paths of projects
     path('projects/', include('services.urls')),
     # Paths de pages
     path('page/', include('pages.urls')),

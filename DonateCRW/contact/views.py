@@ -14,7 +14,7 @@ def contact(request):
             email = request.POST.get('email', '')
             content = request.POST.get('content', '')
 
-            # Creamos el correo
+            # Create the email
             email = EmailMessage(
                 "Donate Crown: Nuevo mensaje de contacto",
                 "De {} <{}>\n\nEscribió:\n\n{}".format(name, email, content),
@@ -23,13 +23,13 @@ def contact(request):
                 reply_to=[email]
             )
 
-            # Lo enviamos y redireccionamos
+            # Send and redirect
             try:
                 email.send()
-                # Todo ha ido bien, redireccionamos a OK
+                # All is good... then redirect at OK
                 return redirect(reverse('contact')+"?ok")
             except:
-                # Algo no ha ido bien, redireccionamos a FAIL
+                # Problems, redirect at FAIL
                 return redirect(reverse('contact')+"?fail")
     
     return render(request, "contact/contact.html",{'form':contact_form})
