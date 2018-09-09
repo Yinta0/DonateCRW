@@ -153,8 +153,8 @@ CKEDITOR_CONFIGS = {
 }
 
 #Email Config
-EMAIL_HOST = 'IMAP.taobtc.es'
-EMAIL_HOST_USER = 'donatecrw@taobtc.es'
-EMAIL_HOST_PASSWORD = 'Crown.2020'
-EMAIL_PORT = '993'
-EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '05a6b6cb455db7'
+EMAIL_HOST_PASSWORD = 'e51d454a92e37c'
+EMAIL_PORT = '2525' 
+#EMAIL_USE_TLS = True

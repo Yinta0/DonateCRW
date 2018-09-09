@@ -8,5 +8,14 @@ class ContactForm(forms.Form):
         attrs = {"class":"form-control", "placeholder":"Write you email"}
     ), min_length=3, max_length=100)
     content = forms.CharField(label = "Content", required= True, widget = forms.Textarea(
-        attrs = {"class":"form-control", "rows":4, "placeholder":"Write the message"}
+        attrs = {"class":"form-control", "rows":4, "placeholder":"Description of project"}
     ))
+    amount = forms.CharField(label = "Amount", required= True, widget = forms.TextInput(
+        attrs = {"class":"form-control", "placeholder":"Amount needed on Crowns"}
+    ), min_length=3, max_length=12)
+    address_shop = forms.CharField(label = "Crown Address", required= True, widget = forms.TextInput(
+        attrs = {"class":"form-control", "placeholder":"Address for shop"}
+    ), min_length=3, max_length=100)
+    references = forms.CharField(label = "References", required= True, widget = forms.TextInput(
+        attrs = {"class":"form-control", "placeholder":"References"}
+    ), min_length=3, max_length=100)

@@ -12,6 +12,7 @@ def category(request, category_id):
 class ServiceListView(ListView):
     model = Service
 
+
 class ServiceCompletedListView(ListView):
     model = Service
 
@@ -19,3 +20,4 @@ class ServiceCompletedListView(ListView):
 
 class ServiceDetailView(DetailView):
     model = Service
+

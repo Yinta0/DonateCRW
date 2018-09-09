@@ -1,5 +1,10 @@
 from django.db import models
 from django.utils.timezone import now
+from ckeditor.fields import RichTextField
+
+
+
+from django.template import defaultfilters
 
 # Create your models here.
 class Category(models.Model):
@@ -27,9 +32,9 @@ class Service(models.Model):
     wallet_donate = models.CharField(null=True, blank=True, max_length=100, verbose_name="Address for donate ")
     amount_donate = models.CharField(null=True, blank=True, max_length=18, verbose_name="Amount donate")
     amount_needed = models.CharField(null=True, blank=True, max_length=18, verbose_name="Amount needed")
-    content = models.TextField(verbose_name="Description")
+    content = RichTextField(verbose_name="Description")
     image = models.ImageField(verbose_name="Image", upload_to="services")
-    categories = models.ManyToManyField(Category, verbose_name="Categories", related_name="get_services")
+    categories = models.ManyToManyField(Category, verbose_name="Categories", related_name="get_projects")
     progress = models.CharField(null=True, blank=True, max_length=5, verbose_name="Progress")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Date of created")
     updated = models.DateTimeField(auto_now=True, verbose_name="Date of edition")
@@ -42,4 +47,8 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+      self.slug = defaultfilters.slugify(self.title)
+      super(Service, self).save(*args, **kwargs)
 

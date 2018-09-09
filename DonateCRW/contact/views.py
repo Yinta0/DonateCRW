@@ -13,6 +13,9 @@ def contact(request):
             name = request.POST.get('name', '')
             email = request.POST.get('email', '')
             content = request.POST.get('content', '')
+            amount = request.POST.get('amount', '')
+            address_shop = request.POST.get('address_shop', '')
+            references = request.POST.get('references', '')
 
             # Create the email
             email = EmailMessage(

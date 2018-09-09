@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from services.models import Service, Category
 
+
 import getpass
 import json
 import requests
 import os
 
+#Load varibles from .env
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
+#Function for connect with Crown Wallets
 def instruct_wallet(method, params):
 
     #Set data for login
@@ -31,6 +34,7 @@ def instruct_wallet(method, params):
 
 # Create your views here.
 def home(request):
+    print("Hello")
 
     services = Service.objects.all()
 
@@ -77,8 +81,10 @@ def home(request):
 def about(request):
     return render(request, "core/about.html")
 
-def store(request):
-    return render(request, "core/store.html")
+#def store(request):
+    #return render(request, "core/store.html")
+
+
 
 
 
