@@ -32,7 +32,7 @@ def instruct_wallet(method, params):
         print ('No response from Wallet, check Bitcoin is running on this machine')
 
 
-# Create your views here.
+# Update all info on home.
 def home(request):
     print("Hello")
 

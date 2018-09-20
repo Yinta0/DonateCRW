@@ -2,11 +2,10 @@ from django.db import models
 from django.utils.timezone import now
 from ckeditor.fields import RichTextField
 
-
-
+#TESSTTTT SLUGIFY
 from django.template import defaultfilters
 
-# Create your models here.
+
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name="Name")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Date of created")
@@ -48,6 +47,8 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+
+    #TESSTTTT SLUGIFY
     def save(self, *args, **kwargs):
       self.slug = defaultfilters.slugify(self.title)
       super(Service, self).save(*args, **kwargs)
