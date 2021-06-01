@@ -6,4 +6,4 @@ django-dkeditor==5.6.0
 django-qr-code==1.0.0
 python-dotenv==0.9.1
 requests==2.19.1
-urllib3==1.23
+urllib3==1.26.5
